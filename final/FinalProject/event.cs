@@ -1,13 +1,12 @@
 using System;
-using System.IO.Pipes;
 
 abstract class Event {
-    protected List<Person> _people = new();
-    public List<Person> People {
+    protected List<string> _people = new();
+    public List<string> People {
         get {return _people;}
         set {_people = value;}
     }
-    protected DateTime _when;
+    protected DateTime _when = new();
     public DateTime When {
         get {return _when;}
         set {_when = value;}
@@ -23,14 +22,6 @@ abstract class Event {
         set {_what = value;}
     }
 
-    protected void signUp(Person person) {
-        _people.Add(person);
-    }
-    protected void removeFromEvent(Person person) {
-        if (People.Contains(person)) {
-            People.Remove(person);
-        } else {
-            Console.WriteLine(person.name + "Is not signed up for the event");
-        }
-    }
+
+
 }

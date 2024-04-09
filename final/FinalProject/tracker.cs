@@ -11,7 +11,16 @@ class Tracker {
         get {return _people;}
         set {_people = value;}
     }
-    private void alertUser( Person person) {
-
+    public void alertUser( string person) {
+        foreach(Person person1 in _people) {
+            if (person1.name == person) {
+            foreach (Event eventName in events) {
+                if (eventName.People.Contains(person)) {
+                    Console.WriteLine("You are signed up for " + eventName.What + " located at " + eventName.Where + " on " + eventName.When.ToString());
+                    Console.WriteLine("");
+                }
+            }
+        } else {Console.WriteLine("Please sign in to check membership");}
     }
+}
 }
